@@ -12,7 +12,6 @@ public class User {
     private InputStream streamIn;
     private String nickname;
     private Socket client;
-    private String color;
 
     // constructor
     public User(Socket client, String name) throws IOException {
@@ -21,7 +20,6 @@ public class User {
         this.client = client;
         this.nickname = name;
         this.userId = nbUser;
-        this.color = "#51b46d";
         nbUser += 1;
     }
 
@@ -42,7 +40,6 @@ public class User {
     // print user with his color
     public String toString(){
 
-        return "<u><span style='color:"+ this.color
-                +"'>" + this.getNickname() + "</span></u>";
+        return this.getNickname();
     }
 }

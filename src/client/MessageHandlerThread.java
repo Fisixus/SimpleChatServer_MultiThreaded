@@ -23,19 +23,12 @@ class MessageHandlerThread implements Runnable {
             if (tmp.charAt(0) == '[') {
                 tmp = tmp.substring(1, tmp.length()-1);
                 System.out.println(
-                        "\nUSERS LIST: " +
+                        "\nONLINE USERS LIST: " +
                                 new ArrayList<String>(Arrays.asList(tmp.split(","))) + "\n"
                 );
             }
             else{
                 System.out.println(tmp);
-                /*
-                try {
-                    System.out.println("\n" + getTagValue(tmp));
-                    // System.out.println(tmp);
-                } catch(Exception ignore){}
-
-                 */
             }
         }
         s.close();

@@ -4,10 +4,8 @@ import utility.User;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -49,8 +47,7 @@ public class Server {
     public void errorMsg(String msg, User userSender) {
         for (User client : this.clients) {
             if(client.getNickname().equals(userSender.getNickname())){
-                client.getOutStream().println(
-                        "<span> " + msg+"</span>");
+                client.getOutStream().println(msg);
                 break;
             }
         }
@@ -71,11 +68,11 @@ public class Server {
                 find = true;
                 userSender.getOutStream().println(userSender.toString() + " -> " + client.toString() +": " + msg);
                 client.getOutStream().println(
-                        "(<b>Private</b>)" + userSender.toString() + "<span>: " + msg+"</span>");
+                        "(Private)" + userSender.toString() + ": " + msg+"");
             }
         }
         if (!find) {
-            userSender.getOutStream().println("(<b>NO USER EXISTS, IN THAT NICKNAME!</b>)");
+            userSender.getOutStream().println("NO USER EXISTS, IN THAT NICKNAME!");
         }
     }
 }

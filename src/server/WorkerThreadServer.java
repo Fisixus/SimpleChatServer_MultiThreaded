@@ -31,7 +31,7 @@ public class WorkerThreadServer extends Thread {
                 String nickname = (new Scanner(client.getInputStream())).nextLine();
                 nickname = nickname.replace(",", ""); //  ',' use for serialisation
                 nickname = nickname.replace(" ", "_");
-                System.out.println("New Client: \"" + nickname + "\"\n\t     Host:" + client.getInetAddress().getHostAddress());
+                System.out.println("New Client: \"" + nickname);
 
                 // create new User
                 User newUser = new User(client, nickname);
@@ -41,7 +41,7 @@ public class WorkerThreadServer extends Thread {
 
                 // Welcome msg
                 newUser.getOutStream().println(
-                        "<b>Welcome</b> " + newUser.toString()
+                        "Welcome " + newUser.toString()
                 );
 
                 // create a new thread for newUser incoming messages handling
