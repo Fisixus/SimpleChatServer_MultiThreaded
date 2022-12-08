@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 public class Client {
 
     public static void main(String[] args) throws IOException {
-        new Client("127.0.0.1", 12345);
+        new Client("127.0.0.1", 4000);
     }
 
     public Client(String host, int port) {

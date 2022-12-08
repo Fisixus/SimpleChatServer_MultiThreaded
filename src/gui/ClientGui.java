@@ -32,7 +32,7 @@ public class ClientGui extends Thread{
 
   public ClientGui() {
     this.serverName = "localhost";
-    this.PORT = 12345;
+    this.PORT = 4000;
     this.name = "nickname";
 
     String fontfamily = "Arial, sans-serif";

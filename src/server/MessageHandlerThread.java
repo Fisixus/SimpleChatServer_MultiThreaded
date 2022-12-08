@@ -13,7 +13,7 @@ public class MessageHandlerThread implements Runnable {
     public MessageHandlerThread(Server server, User user) {
         this.server = server;
         this.user = user;
-        this.server.broadcastAllUsers();
+        this.server.updateAllUsersList();
     }
 
     @Override
@@ -39,12 +39,12 @@ public class MessageHandlerThread implements Runnable {
             }
             else{
                 // update user list
-                server.broadcastMessages(message, user);
+                server.errorMsg("You need to start @ for messaging to an user!", user);
             }
         }
         // end of Thread
         server.removeUser(user);
-        this.server.broadcastAllUsers();
+        this.server.updateAllUsersList();
         sc.close();
     }
 }

@@ -22,8 +22,8 @@ public class Server {
 
     private Server(){
         try{
-            ServerSocket serverSocket = new ServerSocket(12345);
-            System.out.println("Port 12345 is now open.");
+            ServerSocket serverSocket = new ServerSocket(4000);
+            System.out.println("Port 4000 is now open.");
             //this.clients = new ArrayList<User>();
             ExecutorService executor = Executors.newFixedThreadPool(999);
 
@@ -46,27 +46,28 @@ public class Server {
     }
 
     // send incoming msg to all Users
-    public void broadcastMessages(String msg, User userSender) {
+    public void errorMsg(String msg, User userSender) {
         for (User client : this.clients) {
-            //client.getOutStream().println(
-                   // userSender.toString() + "<span>: " + msg+"</span>");
-            client.getOutStream().println(
-              userSender.toString() + "<span>: " + msg+"</span>");
+            if(client.getNickname().equals(userSender.getNickname())){
+                client.getOutStream().println(
+                        "<span> " + msg+"</span>");
+                break;
+            }
         }
     }
 
     // send list of clients to all Users
-    public void broadcastAllUsers(){
+    public void updateAllUsersList(){
         for (User client : this.clients) {
             client.getOutStream().println(this.clients);
         }
     }
 
     // send message to a User (String)
-    public void sendMessageToUser(String msg, User userSender, String user){
+    public void sendMessageToUser(String msg, User userSender, String userNickname){
         boolean find = false;
         for (User client : this.clients) {
-            if (client.getNickname().equals(user) && client != userSender) {
+            if (client.getNickname().equals(userNickname) && client != userSender) {
                 find = true;
                 userSender.getOutStream().println(userSender.toString() + " -> " + client.toString() +": " + msg);
                 client.getOutStream().println(
@@ -74,7 +75,7 @@ public class Server {
             }
         }
         if (!find) {
-            userSender.getOutStream().println(userSender.toString() + " -> (<b>no one!</b>): " + msg);
+            userSender.getOutStream().println("(<b>NO USER EXISTS, IN THAT NICKNAME!</b>)");
         }
     }
 }
