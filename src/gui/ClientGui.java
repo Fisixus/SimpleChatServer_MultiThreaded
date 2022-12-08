@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +8,6 @@ import java.awt.event.KeyEvent;
 import java.net.*;
 import java.io.*;
 import javax.swing.*;
-import javax.swing.text.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.html.*;
