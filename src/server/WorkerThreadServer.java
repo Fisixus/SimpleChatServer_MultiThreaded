@@ -3,7 +3,6 @@ package server;
 
 import utility.User;
 
-import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
@@ -29,9 +28,7 @@ public class WorkerThreadServer extends Thread {
 
                 // get nickname of newUser
                 String nickname = (new Scanner(client.getInputStream())).nextLine();
-                nickname = nickname.replace(",", ""); //  ',' use for serialisation
-                nickname = nickname.replace(" ", "_");
-                System.out.println("New Client: \"" + nickname);
+                System.out.println(nickname + " has connected!");
 
                 // create new User
                 User newUser = new User(client, nickname);

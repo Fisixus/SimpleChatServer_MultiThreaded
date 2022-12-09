@@ -10,6 +10,8 @@ public class Client {
         new Client("127.0.0.1", 4000);
     }
 
+    public Client(){}
+
     public Client(String host, int port) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 

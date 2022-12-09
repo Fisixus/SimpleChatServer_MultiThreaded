@@ -15,14 +15,14 @@ public class Server {
     private List<User> clients = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        new Server();
+        new Server(4000);
     }
+    public Server(){}
 
-    private Server(){
+    public Server(int port){
         try{
-            ServerSocket serverSocket = new ServerSocket(4000);
+            ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Port 4000 is now open.");
-            //this.clients = new ArrayList<User>();
             ExecutorService executor = Executors.newFixedThreadPool(999);
 
             for (int i = 1; i < 1000; i++) {
@@ -72,7 +72,7 @@ public class Server {
             }
         }
         if (!find) {
-            userSender.getOutStream().println("NO USER EXISTS, IN THAT NICKNAME!");
+            userSender.getOutStream().println("NO USER EXISTS IN THAT NICKNAME!");
         }
     }
 }

@@ -1,7 +1,6 @@
 package client;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -36,12 +35,11 @@ public class WorkerThreadClient extends Thread{
             // create a new thread for server messages handling
             new Thread(new MessageHandlerThread(client.getInputStream())).start();
 
-            // read messages from keyboard and send to server
-            System.out.println("Messages: \n");
-
             // while new messages
             while (sc.hasNextLine()) {
-                output.println(sc.nextLine());
+                String s = sc.nextLine();
+                output.println(s);
+                if(s.equals("disconnect")) break;
             }
 
             // end ctrl D
