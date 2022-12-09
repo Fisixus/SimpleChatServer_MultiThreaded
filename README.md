@@ -47,7 +47,6 @@ Port 4000 is now open.<br />
 user1 has connected!<br />
 user2 has connected!<br />
 user2 has sent a message to user1<br />
-user1 has sent a message to user3<br />
 user1 has sent a message to user2<br />
 user1 has left!<br />
 user2 has left!<br />
