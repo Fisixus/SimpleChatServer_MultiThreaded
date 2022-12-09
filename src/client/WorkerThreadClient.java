@@ -42,7 +42,6 @@ public class WorkerThreadClient extends Thread{
                 if(s.equals("disconnect")) break;
             }
 
-            // end ctrl D
             output.close();
             sc.close();
             client.close();

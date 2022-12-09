@@ -24,7 +24,7 @@ public class User {
     }
 
 
-    // getteur
+    // getters
     public PrintStream getOutStream(){
         return this.streamOut;
     }
